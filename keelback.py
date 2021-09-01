@@ -5,7 +5,7 @@ from datetime import datetime
 
 DIR_CONTENT     = "Content"
 DIR_TEMPLATES   = "Templates"
-DIR_EXPORT      = "Export"
+DIR_EXPORT      = "docs"
 DIR_STATIC      = "Static"
 
 META_DELIMITER  = "====="
