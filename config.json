@@ -1,0 +1,8 @@
+{
+    "dir_content":   "../memex/content",
+    "dir_templates": "../memex/templates",
+    "dir_static":    "../memex/static",
+    "dir_export":    "./docs",
+
+    "meta_delimiter": "====="
+}
