@@ -150,6 +150,18 @@ li p {
     margin-top: calc(var(--text-line-height) * -1);
 }
 
+
+/* PURE JANK PLEASE FIX */
+article img {
+    max-width: 100vw;
+    width: 140%;
+    margin: 1em -20% 0px;
+}
+@media only screen and (max-width: calc(46em * 1.4)) {
+    article img { width: 100%; margin-left: 0px; margin-right: 0px; }
+}
+/* </garbage> */
+
 main, footer {
     width: 100%;
     max-width: 46em;
