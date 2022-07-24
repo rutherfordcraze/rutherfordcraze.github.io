@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "memex"
+version = "0.0.0"
+description = ""
+authors = ["Rutherford Craze <rutherford@craze.co.uk>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Markdown = "^3.4.1"
+pystache = "^0.6.0"
+
+[tool.poetry.dev-dependencies]
+black = "^22.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
