@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Health is Mana, France is Bacon</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#DEE1E0">
+
+    <link rel="stylesheet" href="style.css?v=1.2" />
+    <link rel="stylesheet" href="fonts.css" />
+</head>
+
+<body>
+    <main>
+        
+    <nav class="crumb">
+        <a href='./index.html' >Index</a> / <a href='./posts.html' >posts</a> / <a href='./health is mana, france is bacon.html' class='highlit'>Health is Mana, France is Bacon</a>
+    </nav>
+
+    <article>
+        <p>For as long as I’ve been playing games I’ve wanted to make one. A couple times a year I’ll open up Unity or Godot and try to put something together, and usually bounce off within a week. With the exception of <a href="https://mass-driver.com/dolmenlore">The Cave of Dolmenlore</a> (which was never meant as a serious attempt), I’ve never finished a project.</p>
+<p>The reason is, more often than not, that I’ve come up with either a story or an artstyle, rather than anything mechanical. It’s not that you <em>can’t</em> start a game with either of those things, but it’s difficult to make something enjoyable without some degree of iteration. Even the most enlightened vision of the final product is too reductive to realise the entire, complex project.</p>
+<p>This weekend, though, I had a little idea for a mechanic, and I’d like to see where it goes. No commitment to story or setting or visuals yet — just some testing and iteration, and hopefully it ends up being fun.</p>
+<h2>Health is Mana. <a href="https://www.reddit.com/r/AskReddit/comments/dxosj/what_word_or_phrase_did_you_totally_misunderstand/c13pbyc/">France is Bacon</a>.</h2>
+<p>The simplest form I imagined is this: you play as some kind of mage in some kind of dungeon, in which your hit points and mana points are one and the same. To cast a spell, you must sacrifice your own health — but when you slay a foe, you’ll get it back (and more).</p>
+<p>I can see two immediate issues here:</p>
+<ol>
+<li>There’s a negative feedback loop. If you’re being overwhelmed by enemies, you can’t fight back without first making the situation worse. Which means:</li>
+<li>This mechanic incentivises <em>defensive</em> play. I’m not sure I want that — it could be fun, but more likely it’ll be slow and unengaging.</li>
+</ol>
+<p>The solution to <em>2</em> could be as simple as having your health permanently tick down outside of combat, forcing you to keep progressing. But that doesn’t exactly solve the first problem.</p>
+<p>Nevertheless, I put together a quick demo using some 1-bit sprites made in Figma (which is categorically <em>not</em> the right tool for the job, but it was already open).</p>
+<p><img alt="Test with one skeleton and a projectile" src="./media/france_is_bacon-w1_i1.png" /></p>
+<p>In the first test, I had an enemy (a skeleton) which chases the player (a wizard) and attacks them while in melee range. The player can fire a projectile which costs 1 HP and kills the skeleton, which in turn restores 2 HP.</p>
+<p>In the second, I bumped the player HP up to 100, the projectile cost up to 10, and the health gained from the skeleton down to 15 — in essence, while you could previously miss one shot per skeleton and be fine, now you need to hit two out of every three.</p>
+<p>This was fine, but not exactly interesting. The mechanic becomes essentially about dodging and aiming. So in the third test, I changed it up once more: I added a new enemy, the spider, which takes multiple hits to kill but drops more HP, and I also added an area-of-effect spell which can damage multiple enemies at once.</p>
+<p><img alt="Test with multiple enemies and spells" src="./media/france_is_bacon-w1_i2.png" /></p>
+<p>The AOE spell has a higher HP cost than the projectile, but a lower damage — so while it can take out a whole group of skeletons at once, killing a spider with it costs more HP than the spider drops. This absolutely made things more interesting: now as well as aiming and dodging, you’re rewarded for picking the right tool for each enemy type, and for kiting skeletons into groups.</p>
+<p>But the negative feedback loop is still very much present, and it has teeth: if your health is <em>too</em> low, you can’t fight, and therefore you can’t regain HP.</p>
+<h2>Where now?</h2>
+<p>I think the concept still has legs, but it needs watering down and balancing out (to butcher a metaphor). I want to try adding a floor to the feedback loop — some base level of attack that doesn’t cost HP but isn’t as good as the others. High risk, high reward, but optional: maybe the enemies will drop extra loot if you hit them with spells, but they can theoretically be taken down with just a sword. Some ranged enemies could also be useful in getting the player more engaged in combat, rather than the current kite battle.</p>
+<p>This iterative approach is already proving more useful than my typical start-with-the-story model — if I keep going with the project, I’ll post more of these development updates whenever I get the chance.</p>
+    </article>
+    
+    </main>
+    <footer>
+        <a href="./copyright.html">&copy;</a> <a href="./.html">Rutherford Craze</a> &sdot; <a
+            href="https://webring.xxiivv.com/">Webring</a>
+        <a rel="me" href="https://merveilles.town/@rutherford"></a>
+        <span class="footer__nocss_divider"> &sdot; </span>
+        <span class="footer__right">Build 2022·07·25 13:13</span>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Keelback</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#DEE1E0">
+
+    <link rel="stylesheet" href="style.css?v=1.2" />
+    <link rel="stylesheet" href="fonts.css" />
+</head>
+
+<body>
+    <main>
+        
+    <nav class="crumb">
+        <a href='./index.html' >Index</a> / <a href='./about.html' >About</a> / <a href='./keelback.html' class='highlit'>Keelback</a>
+    </nav>
+
+    <article>
+        <h1>Keelback is a flat-file static site builder written in Python.</h1>
+<p>It’s designed to make categorising and maintaining the source content straightforward, while keeping a wiki-like (non-hierarchic) link structure. </p>
+<p>Content is stored in <code>txt</code> files and rendered using Markdown, with templates written in <code>html</code> and rendered with Pystache. Static objects like <a href="./css%20reference.html">stylesheets</a> and images are not modified.</p>
+<h2>Hierarchy</h2>
+<p>Pages can be categorised by arranging them in folders within the content directory. On export, the hierarchy is flattened and category pages are generated automatically for each folder. If a <code>txt</code> file exists with the same name as a category, it will overwrite the auto-generated category page.</p>
+<p>The following content structure:</p>
+<pre><code>Content/
+  ├─ index.txt
+  ├─ 404.txt
+  │  ...
+  └─ recipes/
+       ├─ risotto.txt
+       └─ tortellini.txt
+          ...
+</code></pre>
+<p>will be exported as:</p>
+<pre><code>Export/
+  ├─ index.html
+  ├─ 404.html
+  ├─ recipes.html
+  ├─ risotto.html
+  └─ tortellini.html
+     ...
+</code></pre>
+<p>with the file <code>recipes.html</code> generated automatically, containing a linked list of every <code>html</code> file in the ‘recipes’ category.</p>
+<h2>Metadata</h2>
+<p>Pages can optionally include metadata, in the form of key-value pairs (one per line), separated from the main content by a delimiter (<code>=====</code> by default).</p>
+<pre><code>Title: Example Blog Post
+Date: 01-09-2021
+=====
+...
+</code></pre>
+<p>Only <code>title</code> and <code>date</code> are used by Keelback: <code>title</code> overrides the page’s filename (since the latter must also work as a URL slug), and <code>date</code> is used to sort time-based content like blog posts.</p>
+<h2>Dynamic Content</h2>
+<p>Pages are rendered using <a href="https://github.com/defunkt/pystache">Pystache</a>, a Python implementation of the <a href="http://mustache.github.io">Mustache</a> logicless template system. This can also be used within page content to access other page and category objects within the site:</p>
+<ul>
+<li>
+<p><code>pages.&lt;slug&gt;.link</code> returns a link to the specified page, with the page’s <code>title</code> attribute as the link text.</p>
+</li>
+<li>
+<p><code>pages.&lt;slug&gt;.meta.&lt;property&gt;</code> returns arbitrary metadata for the specified page (as described above).</p>
+</li>
+<li>
+<p><code>categories.&lt;name&gt;.contents</code> returns an <code>html</code> list of all pages in the specified category. If every page in the category has a <code>date</code> attribute, this list is an <code>ol</code> in reverse chronological order; otherwise it’s an alphabetically sorted <code>ul</code>.</p>
+</li>
+</ul>
+    </article>
+    
+    </main>
+    <footer>
+        <a href="./copyright.html">&copy;</a> <a href="./.html">Rutherford Craze</a> &sdot; <a
+            href="https://webring.xxiivv.com/">Webring</a>
+        <a rel="me" href="https://merveilles.town/@rutherford"></a>
+        <span class="footer__nocss_divider"> &sdot; </span>
+        <span class="footer__right">Build 2022·07·25 13:13</span>
+    </footer>
+</body>
+
+</html>
