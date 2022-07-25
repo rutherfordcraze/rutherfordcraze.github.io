@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ meta.title }}</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#DEE1E0">
+
+    <link rel="stylesheet" href="style.css?v=1.2" />
+    <link rel="stylesheet" href="fonts.css" />
+</head>
+
+<body>
+    <main>
+        {{{ page }}}
+    </main>
+    <footer>
+        <a href="./copyright.html">&copy;</a> <a href="./{{{ pages.about.slug }}}.html">Rutherford Craze</a> &sdot; <a
+            href="https://webring.xxiivv.com/">Webring</a>
+        <a rel="me" href="https://merveilles.town/@rutherford"></a>
+        <span class="footer__nocss_divider"> &sdot; </span>
+        <span class="footer__right">Build {{ buildtime }}</span>
+    </footer>
+</body>
+
+</html>
