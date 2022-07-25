@@ -526,6 +526,3 @@ def build_site(
     stop: time.time = time.time()
     elapsed: int = int((stop - start) * 1000)
     print("[KEELBACK]: Done! ({} ms.)".format(elapsed))
-
-
-# build_site("./content", "./static", "./layout.html", "./export")
