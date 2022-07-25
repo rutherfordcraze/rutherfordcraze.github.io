@@ -532,9 +532,9 @@ def build_site(
     categories = {}
     for node in nodetree.values():
         if node.__class__ == Page:
-            pages[node.title] = node
+            pages[node.slug] = node
         elif node.__class__ == Category:
-            categories[node.title] = node
+            categories[node.slug] = node
 
     print("[KEELBACK]: Building pages...")
     build_pages(nodetree, layout_file, export_directory)
