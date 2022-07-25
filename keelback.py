@@ -309,6 +309,7 @@ class Page(Node):
     def context(self) -> dict[any]:
         return dict(
             vars(self),
+            title=self.title,
             breadcrumb=self.breadcrumb,
             body=self.body,
             pages=pages,
