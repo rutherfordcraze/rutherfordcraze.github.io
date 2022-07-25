@@ -25,7 +25,7 @@ def slugify(string: str) -> str:
     Returns:
         A slugified version of the input string.
     """
-    return string.lower()
+    return string.lower().replace("/", "-")
 
 
 class Node:
@@ -200,6 +200,20 @@ class Page(Node):
     def __repr__(self) -> str:
         return "Page node: {}".format(self.slug)
 
+    def __init__(self) -> None:
+        self._parent: str = None
+        self._title: str = None
+
+    @property
+    def title(self) -> str:
+        if "title" in self.metadata:
+            return self.metadata["title"]
+        return self._title
+
+    @title.setter
+    def title(self, new_title: str) -> None:
+        self._title = new_title
+
     def split_content(self) -> list[str]:
         """
         Splits this page’s ‘content’ string into two strings
@@ -247,17 +261,17 @@ class Page(Node):
         """Backwards-compatible alias for 'metadata' property"""
         return self.metadata
 
-    @property
-    def full_title(self) -> str:
-        """Returns this page’s title, either from its
-        filename or (if present) from its metadata."""
-        if "title" in self.metadata:
-            return self.metadata["title"]
-        return self.title
+    # @property
+    # def full_title(self) -> str:
+    #     """Returns this page’s title, either from its
+    #     filename or (if present) from its metadata."""
+    #     if "title" in self.metadata:
+    #         return self.metadata["title"]
+    #     return self.title
 
     def get_link(self, link_text: str = None, highlight: bool = False) -> str:
         template: str = "<a href='./{slug}.html' {highlight}>{text}</a>"
-        link_text: str = link_text if link_text else self.full_title
+        link_text: str = link_text if link_text else self.title
         highlight: str = "class='highlit'" if highlight else ""
         return template.format(slug=self.slug, highlight=highlight, text=link_text)
 
@@ -299,6 +313,7 @@ class Page(Node):
             body=self.body,
             pages=pages,
             categories=categories,
+            meta=self.metadata,
         )
 
 
