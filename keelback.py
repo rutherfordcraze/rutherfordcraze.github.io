@@ -39,6 +39,7 @@ class Node:
 
     path: str
     title: str
+    slug: str
     children: list[Node] = []
 
     metadata_delimiter: str = "====="
@@ -76,9 +77,9 @@ class Node:
         else:
             print("Can’t set a node’s parent to None!")
 
-    @property
-    def slug(self) -> str:
-        return slugify(self.title)
+    # @property
+    # def slug(self) -> str:
+    #     return slugify(self.title)
 
     @property
     def link(self) -> str:
@@ -408,8 +409,10 @@ def make_node(
         node: Page = Page()
         with open(os.path.join(path, from_file), "r") as f:
             node.content = f.read()
+        node.slug = from_file.split(".", 1)[0]
     else:
         node: Category = Category()
+        node.slug = slugify(title)
 
     node.path = path
     node.title = title
