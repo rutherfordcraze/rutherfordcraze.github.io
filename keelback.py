@@ -9,8 +9,11 @@ from datetime import datetime
 import pystache
 import markdown
 
-import os, pathlib, time, shutil, errno
+import os, pathlib, time, shutil, errno, re
 from posixpath import abspath
+
+# Compile quicklink regex now for faster matching
+QL = re.compile("(?:\s|^)\[\[(.+?)\]\](?:\s|$)")
 
 
 def slugify(_string: str) -> str:
@@ -20,13 +23,42 @@ def slugify(_string: str) -> str:
     plusses, etc. In practice it just makes it lowercase.
 
     Args:
-        string: the string to be slugified.
+        _string: the string to be slugified.
 
     Returns:
         A slugified version of the input string.
     """
     _slug = _string.lower().replace("/", "-").replace(" ", "-")
     return _slug
+
+
+def parse_quicklinks(_body: str) -> str:
+    """
+    Extract quick (wikipedia-style) link shorthands, and
+    replace them with HTML <a> tags pointing at the page
+    to which the link refers.
+
+    Args:
+        _body: A page node’s body text (or in theory any
+               string) to be parsed.
+
+    Returns:
+        The input string, with [[page]]-syntax links replaced
+        by functional anchor tags.
+    """
+    matches = QL.finditer(_body)
+
+    for match in matches:
+        quicklink = match.group(1).strip()
+
+        if slugify(quicklink) in pages:
+            _body = _body.replace(
+                match.group(0), " " + pages[slugify(quicklink)].link + " "
+            )
+        else:
+            _body = _body.replace(match.group(0), " " + quicklink + " ")
+
+    return _body
 
 
 class Node:
@@ -305,7 +337,7 @@ class Page(Node):
         # r: pystache.Renderer = pystache.Renderer()
         # return r.render(template, context)
 
-        return template
+        return parse_quicklinks(template)
 
     @property
     def context(self) -> dict[any]:
