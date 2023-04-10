@@ -13,11 +13,11 @@ import os, pathlib, time, shutil, errno
 from posixpath import abspath
 
 
-def slugify(string: str) -> str:
+def slugify(_string: str) -> str:
     """
     Convert an arbitrary string to a URL slug. In theory
     this should sanitise the string, replace spaces with
-    hyphens, etc. In practice it just makes it lowercase.
+    plusses, etc. In practice it just makes it lowercase.
 
     Args:
         string: the string to be slugified.
@@ -25,7 +25,8 @@ def slugify(string: str) -> str:
     Returns:
         A slugified version of the input string.
     """
-    return string.lower().replace("/", "-")
+    _slug = _string.lower().replace("/", "-").replace(" ", "-")
+    return _slug
 
 
 class Node:
@@ -409,7 +410,7 @@ def make_node(
         node: Page = Page()
         with open(os.path.join(path, from_file), "r") as f:
             node.content = f.read()
-        node.slug = from_file.split(".", 1)[0]
+        node.slug = slugify(from_file.split(".", 1)[0])
     else:
         node: Category = Category()
         node.slug = slugify(title)
@@ -425,7 +426,6 @@ def create_nodetree(content_dir: str) -> dict[str, Node]:
     nodetree: dict[str, Node] = {}
 
     for path, dirs, files in os.walk(content_dir):
-
         # Create category nodes
         p: pathlib.Path = pathlib.Path(path)
         if str(p.name).lower() != "content":
