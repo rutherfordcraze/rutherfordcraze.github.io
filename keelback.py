@@ -13,7 +13,7 @@ import os, pathlib, time, shutil, errno, re
 from posixpath import abspath
 
 # Compile quicklink regex now for faster matching
-QL = re.compile("(?:\s|^)\[\[(.+?)\]\](?:\s|$)")
+QL = re.compile("(\s|^)\[\[(.+?)\]\](\s|$|[,.;:‘’“”])")
 
 
 def slugify(_string: str) -> str:
@@ -28,6 +28,10 @@ def slugify(_string: str) -> str:
     Returns:
         A slugified version of the input string.
     """
+    punctuation = "\"'.,“”‘’:;()[]\{\}"
+    for character in punctuation:
+        if character in _string:
+            _string = _string.replace(character, "")
     _slug = _string.lower().replace("/", "-").replace(" ", "-")
     return _slug
 
@@ -49,14 +53,17 @@ def parse_quicklinks(_body: str) -> str:
     matches = QL.finditer(_body)
 
     for match in matches:
-        quicklink = match.group(1).strip()
+        quicklink = match.group(2).strip()
 
         if slugify(quicklink) in pages:
             _body = _body.replace(
-                match.group(0), " " + pages[slugify(quicklink)].link + " "
+                match.group(0),
+                match.group(1) + pages[slugify(quicklink)].link + match.group(3),
             )
         else:
-            _body = _body.replace(match.group(0), " " + quicklink + " ")
+            _body = _body.replace(
+                match.group(0), match.group(1) + quicklink + match.group(3)
+            )
 
     return _body
 
