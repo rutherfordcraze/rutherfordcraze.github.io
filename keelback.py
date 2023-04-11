@@ -106,7 +106,10 @@ class Node:
     @parent.setter
     def parent(self, new_parent: Node) -> None:
         if new_parent == self:
-            print("Can’t set a node’s parent to itself! (node: {})".format(self.title))
+            if self.title != "Index":
+                print(
+                    "Can’t set a node’s parent to itself! (node: {})".format(self.title)
+                )
         elif new_parent:
             if self._parent:
                 if self in self._parent.children:
