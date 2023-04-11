@@ -73,6 +73,23 @@ hr {
     border-bottom: 1px solid var(--lines);
 }
 
+table {
+    text-align: left;
+    border-collapse: collapse;
+    border: 1px solid var(--background-code);
+}
+
+thead { border-bottom: 1px solid var(--lines); }
+tr:nth-child(2n-1) { background-color: var(--background-code); }
+thead > tr:nth-child(2n-1) { background-color: transparent; }
+th, td { padding: 0.2em 0.6em; }
+
+th:not(:last-child),
+td:not(:last-child) {
+    padding-right: 1em;
+    border-right: 1px solid var(--lines);
+}
+
 code {
     display: inline-block;
     padding: 0px 4px;

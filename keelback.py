@@ -13,7 +13,7 @@ import os, pathlib, time, shutil, errno, re
 from posixpath import abspath
 
 # Compile quicklink regex now for faster matching
-QL = re.compile("(\s|^)\[\[(.+?)\]\](\s|$|[,.;:‘’“”])")
+QL = re.compile("(\s|^|\>)\[\[(.+?)\]\](\s|$|\<|[,.;:‘’“”])")
 
 
 def slugify(_string: str) -> str:
@@ -338,7 +338,7 @@ class Page(Node):
     @property
     def body(self) -> str:
         # First convert the markdown content to HTML
-        template: str = markdown.markdown(self.markdown)
+        template: str = markdown.markdown(self.markdown, extensions=["tables"])
 
         # Then render the HTML with pystache
         # r: pystache.Renderer = pystache.Renderer()
