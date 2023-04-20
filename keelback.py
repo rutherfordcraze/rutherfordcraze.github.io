@@ -124,6 +124,17 @@ class Node:
     # def slug(self) -> str:
     #     return slugify(self.title)
 
+    def get_timestamp(
+        self, as_string: bool = False, as_html: bool = False
+    ) -> datetime or str:
+        """
+        Dummy method for category and generic nodes.
+        Returns nothing (overridden by Page nodes)
+        """
+        if as_string or as_html:
+            return ""
+        return None
+
     @property
     def link(self) -> str:
         return self.get_link()
@@ -397,7 +408,8 @@ class Category(Node):
         if self.children:
             if self.children[0].get_timestamp():
                 self.children.sort(
-                    key=lambda x: (x.get_timestamp(), x.title), reverse=True
+                    key=lambda x: (x.get_timestamp() or datetime.now(), x.title),
+                    reverse=True,
                 )
                 for node in self.children:
                     li: str = "<li>{link} {timestamp}</li>"
