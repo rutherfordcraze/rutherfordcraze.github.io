@@ -490,7 +490,7 @@ def create_nodetree(content_dir: str) -> dict[str, Node]:
 
         # Create page nodes
         for file in files:
-            if file.endswith(".txt"):
+            if file.endswith(".txt") or file.endswith(".md"):
                 title: str = file[:-4]
 
                 new_page: Page = make_node(path, title, from_file=file)
