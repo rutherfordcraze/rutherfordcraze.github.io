@@ -152,6 +152,7 @@ ul.category { padding-left: 0px; }
 ol { counter-reset: list-number; }
 ol li:before, ul li:before {
     margin-left: -1.2em; /* MD IO’s glyphs are exactly 0.6em wide */
+    transform: translateX(-100%); /* But even so, let’s stop 2-digit numbers crashing */
     float: left;
     font-family: var(--monospace);
     color: var(--secondary);
