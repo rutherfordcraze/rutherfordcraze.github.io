@@ -151,7 +151,7 @@ class Node:
         Returns:
             A string containing the link HTML element.
         """
-        template: str = "<a href='./{slug}.html' {highlight}>{text}</a>"
+        template: str = "<a href='./{slug}' {highlight}>{text}</a>"
         link_text: str = link_text if link_text else self.title
         highlight: str = "class='highlit'" if highlight else ""
         return template.format(slug=self.slug, highlight=highlight, text=link_text)
@@ -325,7 +325,7 @@ class Page(Node):
     #     return self.title
 
     def get_link(self, link_text: str = None, highlight: bool = False) -> str:
-        template: str = "<a href='./{slug}.html' {highlight}>{text}</a>"
+        template: str = "<a href='./{slug}' {highlight}>{text}</a>"
         link_text: str = link_text if link_text else self.title
         highlight: str = "class='highlit'" if highlight else ""
         return template.format(slug=self.slug, highlight=highlight, text=link_text)
