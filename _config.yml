@@ -10,6 +10,9 @@ github_username: rutherfordcraze
 timezone: "Europe/Amsterdam"
 encoding: "utf-8"
 
+kramdown:
+  auto_ids: false
+
 permalink: /:categories/:title:output_ext
 
 defaults:
