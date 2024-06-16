@@ -9,7 +9,7 @@ title: Index
 
 ## Articles
 
-{% include catlist.html category="articles" %}
+{% include catlist.html category="posts" %}
 
 ## Work
 
