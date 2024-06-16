@@ -8,9 +8,7 @@
 		</nav>
 		
 		<main>
-			<article>
-				{{ content }}
-			</article>
+			{% include catlist.html category=page.path %}
 		</main>
 		
 		{% include footer.html %}

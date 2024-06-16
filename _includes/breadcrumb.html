@@ -1,0 +1,16 @@
+<div id="breadcrumb">
+	{% if page.url == "/" %}
+		<a href="/" class="current">index</a>
+	{% else %}
+		<a href="/">index</a>
+		{% if page.category %}
+			/ <a href="/{{page.category}}">{{ page.category }}</a>
+		{% endif %}
+			
+		{% if page.permalink %}
+			/ <a href="{{page.permalink}}" class="current">{{ page.permalink }}</a>
+		{% else %}
+			/ <a href="{{page.url}}" class="current">{{ page.title | downcase }}</a>
+		{% endif %}
+	{% endif %}
+</div>

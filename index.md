@@ -3,6 +3,8 @@ layout: default
 title: "Happy Jekylling!"
 ---
 
-## You're ready to go!
+## Hello World
 
 Start developing your Jekyll website.
+
+{% include catlist.html category="articles" %}

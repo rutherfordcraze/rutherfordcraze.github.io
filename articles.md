@@ -1,0 +1,4 @@
+---
+title: articles
+layout: category
+---
