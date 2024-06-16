@@ -1,7 +1,7 @@
 <ul class="catlist">
 	{% for collection in site.collections %}
 		{% if include.category == collection.label %}
-			{% for page in collection.docs %}
+			{% for page in collection.docs reversed %}
 				<li>
 					<a href="{{ page.url }}" class="local">{{ page.title }}</a>
 					<span class="nocss_dot">&middot;</span>
