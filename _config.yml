@@ -13,18 +13,21 @@ encoding: "utf-8"
 kramdown:
   auto_ids: false
 
-permalink: /:categories/:title:output_ext
+collections_dir: collections
+collections:
+  work:
+    output: true
+    permalink: /work/:slug
 
 defaults:
   -
     scope:
       path: ""
-      type: "posts"
     values:
-      category: "articles"
+      layout: "default"
   -
     scope:
       path: ""
-      type: "pages"
+      type: "posts"
     values:
-      layout: "default"
+      permalink: /articles/:slug

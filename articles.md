@@ -1,4 +1,6 @@
 ---
 title: articles
-layout: category
+layout: default
 ---
+
+{% include catlist.html category="posts" %}

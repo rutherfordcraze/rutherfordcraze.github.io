@@ -1,11 +1,13 @@
 <ul class="catlist">
-	{% for post in site.posts %}
-		{% if include.category contains post.category %}
-			<li>
-				<a href="{{ post.url }}" class="local">{{ post.title }}</a>
-				<span class="nocss_dot">&middot;</span>
-				<span class="date">{{ post.date | date: "%b %Y" }}</span>
-			</li>
+	{% for collection in site.collections %}
+		{% if include.category == collection.label %}
+			{% for page in collection.docs %}
+				<li>
+					<a href="{{ page.url }}" class="local">{{ page.title }}</a>
+					<span class="nocss_dot">&middot;</span>
+					<span class="date">{{ page.date | date: "%b %Y" }}</span>
+				</li>
+			{% endfor %}
 		{% endif %}
 	{% endfor %}
 </ul>

@@ -3,12 +3,16 @@
 		<a href="/" class="current">index</a>
 	{% else %}
 		<a href="/">index</a>
-		{% if page.category %}
-			/ <a href="/{{page.category}}">{{ page.category }}</a>
+		{% if page.collection %}
+			{% if page.collection == "posts" %}
+				/ <a href="/articles">articles</a>
+			{% else %}
+				/ <a href="/{{page.collection}}">{{ page.collection }}</a>
+			{% endif %}
 		{% endif %}
 			
 		{% if page.permalink %}
-			/ <a href="{{page.permalink}}" class="current">{{ page.permalink }}</a>
+			/ <a href="{{page.permalink}}" class="current">{{ page.title | downcase }}</a>
 		{% else %}
 			/ <a href="{{page.url}}" class="current">{{ page.title | downcase }}</a>
 		{% endif %}
