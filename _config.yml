@@ -18,6 +18,12 @@ collections:
   work:
     output: true
     permalink: /work/:slug
+  recipes:
+    output: true
+    permalink: /recipes/:slug
+  recipes:
+    output: false
+    permalink: /lissenire/:slug
 
 defaults:
   -
@@ -31,3 +37,9 @@ defaults:
       type: "posts"
     values:
       permalink: /articles/:slug
+  -
+    scope:
+      path: ""
+      type: "recipes"
+    values:
+      timeless: true
