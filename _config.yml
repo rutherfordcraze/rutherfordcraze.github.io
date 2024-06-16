@@ -1,3 +1,11 @@
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: "" # the subpath of your site, e.g. /blog
-title: "" # the name of your site, e.g. ACME Corp.
+title: "Rutherford Craze"
+email: rutherford@craze.co.uk
+description: >-
+  The personal website of Rutherford Craze, a Netherlands-based
+  typeface designer & font engineer from the UK.
+baseurl: ""
+url: "https://craze.co.uk"
+github_username: rutherfordcraze
+
+timezone: "Europe/Amsterdam"
+encoding: "utf-8"
