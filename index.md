@@ -7,10 +7,10 @@ title: Index
 
 [About](/about) · [Now](/now) · [Links](/links)
 
-## Articles
-
-{% include catlist.html category="posts" %}
-
 ## Work
 
 {% include catlist.html category="work" %}
+
+<!-- ## Articles -->
+
+<!-- {% include catlist.html category="posts" %} -->
