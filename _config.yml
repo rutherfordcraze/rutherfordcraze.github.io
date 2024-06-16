@@ -9,3 +9,19 @@ github_username: rutherfordcraze
 
 timezone: "Europe/Amsterdam"
 encoding: "utf-8"
+
+permalink: /:categories/:title:output_ext
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      category: "articles"
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
