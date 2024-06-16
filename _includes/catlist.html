@@ -4,8 +4,10 @@
 			{% for page in collection.docs reversed %}
 				<li>
 					<a href="{{ page.url }}" class="local">{{ page.title }}</a>
-					<span class="nocss_dot">&middot;</span>
-					<span class="date">{{ page.date | date: "%b %Y" }}</span>
+					{% if page.timeless != true %}
+						<span class="nocss_dot">&middot;</span>
+						<span class="date">{{ page.date | date: "%b %Y" }}</span>
+					{% endif %}
 				</li>
 			{% endfor %}
 		{% endif %}
