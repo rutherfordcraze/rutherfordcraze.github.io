@@ -66,6 +66,13 @@ pre, code {
 
 code { display: inline-block }
 
+blockquote {
+  margin: 20px 0px;
+  border-left: 1px solid var(--color-secondary);
+  padding-left: 29px;
+  font-style: italic;
+}
+
 abbr {
   font-variant-caps: all-small-caps;
 }
