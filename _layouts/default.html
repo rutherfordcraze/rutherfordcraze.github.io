@@ -3,16 +3,18 @@
 	{% include head.html %}
 	
 	<body>
-		<nav>
-			{% include breadcrumb.html %}
-		</nav>
-		
-		<main>
-			<article>
-				{{ content }}
-			</article>
-		</main>
-		
+		<div class="page">
+			<nav>
+				{% include breadcrumb.html %}
+			</nav>
+			
+			<main>
+				<article>
+					{{ content }}
+				</article>
+			</main>
+		</div>
+			
 		{% include footer.html %}
 	</body>
 

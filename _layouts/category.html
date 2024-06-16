@@ -3,14 +3,16 @@
 	{% include head.html %}
 	
 	<body>
-		<nav>
-			{% include breadcrumb.html %}
-		</nav>
-		
-		<main>
-			{% include catlist.html category=page.path %}
-		</main>
-		
+		<div class="page">
+			<nav>
+				{% include breadcrumb.html %}
+			</nav>
+			
+			<main>
+				{% include catlist.html category=page.path %}
+			</main>
+		</div>
+			
 		{% include footer.html %}
 	</body>
 
