@@ -17,5 +17,16 @@
 			
 		{% include footer.html %}
 	</body>
+	
+	<script type="speculationrules" >
+		{
+			"prerender": [{
+				"where": {
+					"href_matches": "/*"
+				},
+				"eagerness": "moderate"
+			}]
+		}
+	</script>
 
 </html>
