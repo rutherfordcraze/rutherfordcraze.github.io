@@ -12,6 +12,9 @@
   --color-tertiary: #DEE1E0;
   --color-background: #F6F6F6;
   
+  --color-link-internal: #3050FF;
+  --color-link-external: #FF5030;
+  
   --font-serif: "MD Lorien", serif;
   --font-mono: "MD IO", monospace;
   --font-mono-size: 0.9em;
@@ -124,26 +127,31 @@ nav a.current {
 
 article a {
   text-decoration: none;
-  color: inherit;
+  color: var(--color-link-internal);
+}
+
+article a[href^="http"],
+article a[href^="mailto"] {
+  color: var(--color-link-external);
 }
 
 article a:hover {
   color: var(--color-secondary);
 }
 
-article a::before {
-    content: "{";
-    padding: 0px 1px;
-}
-article a::after {
-    content: "}";
-    padding: 0px 1px;
-}
+// article a::before {
+//     content: "{";
+//     padding: 0px 1px;
+// }
+// article a::after {
+//     content: "}";
+//     padding: 0px 1px;
+// }
 
-article a[href^="http"]::before,
-article a[href^="mailto"]::before { content: "["; }
-article a[href^="http"]::after,
-article a[href^="mailto"]::after { content: "]"; }
+// article a[href^="http"]::before,
+// article a[href^="mailto"]::before { content: "["; }
+// article a[href^="http"]::after,
+// article a[href^="mailto"]::after { content: "]"; }
 
 article img {
   max-width: 100vw;
@@ -171,10 +179,10 @@ article img {
 
 .catlist li::before { content: none; }
 
-.catlist a {
-  text-decoration: none;
-  color: inherit;
-}
+// .catlist a {
+//   text-decoration: none;
+//   color: inherit;
+// }
 
 .catlist a:hover { color: var(--color-secondary); }
 
