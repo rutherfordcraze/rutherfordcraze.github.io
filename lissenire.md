@@ -1,5 +1,6 @@
+---
 title: Lissenire
-=====
+---
 # Lissenire is a homebrew Dungeons & Dragons campaign.
 
 ## Background

@@ -21,7 +21,7 @@ collections:
   recipes:
     output: true
     permalink: /recipes/:slug
-  recipes:
+  lissenire:
     output: false
     permalink: /lissenire/:slug
 
