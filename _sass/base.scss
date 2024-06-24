@@ -127,31 +127,28 @@ nav a.current {
 
 article a {
   text-decoration: none;
-  color: var(--color-link-internal);
-}
-
-article a[href^="http"],
-article a[href^="mailto"] {
-  color: var(--color-link-external);
+  color: inherit;
 }
 
 article a:hover {
   color: var(--color-secondary);
 }
 
-// article a::before {
-//     content: "{";
-//     padding: 0px 1px;
-// }
-// article a::after {
-//     content: "}";
-//     padding: 0px 1px;
-// }
+article a::before {
+    content: "{";
+    color: var(--color-secondary);
+    padding: 0px 1px;
+}
+article a::after {
+    content: "}";
+    color: var(--color-secondary);
+    padding: 0px 1px;
+}
 
-// article a[href^="http"]::before,
-// article a[href^="mailto"]::before { content: "["; }
-// article a[href^="http"]::after,
-// article a[href^="mailto"]::after { content: "]"; }
+article a[href^="http"]::before,
+article a[href^="mailto"]::before { content: "["; }
+article a[href^="http"]::after,
+article a[href^="mailto"]::after { content: "]"; }
 
 article img {
   max-width: 100vw;
