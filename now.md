@@ -7,7 +7,7 @@ permalink: now
 
 I’ve just published [MD Lórien](https://mass-driver.com/typefaces/md-lorien), my first commercially-available serif typeface. I started drawing it in July of 2022 — it’s taken almost two years (and the help of two other designers) to complete. But I’m very happy with it!
 
-As the weather gets better, I’ve been starting to work on a balcony garden. I have a pretty good track record with [houseplants](/houseplants), but this is my first time gardening outdoors. (Not counting the two ferns I killed last summer.)
+As the weather gets better, I’ve been starting to work on a balcony garden. I have a pretty good track record with [houseplants](/plants), but this is my first time gardening outdoors. (Not counting the two ferns I killed last summer.)
 
 ## Longer-term
 
