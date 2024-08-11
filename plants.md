@@ -53,3 +53,7 @@ title: Plants
 - Lithops
 - Nepenthes
 - Philodendron
+
+# Outdoor plants
+
+(See [planting calendar](./calendar))
