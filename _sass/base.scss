@@ -6,6 +6,7 @@
 :root {
   --h-margin: 40px;
   --v-margin: 50px;
+  --body-width: 600px;
   
   --color-primary: #25211D;
   --color-secondary: #999;
@@ -27,7 +28,7 @@
 
 body {
   margin: 0;
-  padding: 0;
+  padding: 0 var(--v-margin);
   
   background: var(--color-background);
   color: var(--color-primary);
@@ -62,6 +63,26 @@ h2 {
 
 h1 + h2 {
   margin-top: 0;
+}
+
+table {
+  position: absolute;
+  left: var(--v-margin);
+  width: calc(100vw - (var(--v-margin) * 2));
+  border: 1px solid var(--color-secondary);
+  border-width: 1px 0px;
+  border-collapse: collapse;
+}
+
+th {
+  font-weight: normal; font-variant-caps: all-small-caps;
+  border-bottom: 1px solid var(--color-tertiary);
+}
+
+th, td { padding: 2px 4px; }
+
+tr:hover {
+  background-color: var(--color-tertiary);
 }
 
 pre, code {
@@ -157,17 +178,16 @@ article a[href^="http"]::after,
 article a[href^="mailto"]::after { content: "]"; }
 
 article img {
-  max-width: 100vw;
-  width: 140%;
-  margin: 1em -20% 0px;
+  width: 150%;
+  margin: 1em -25% 0px;
   border-radius: var(--radius);
 }
 
 .page, footer {
   width: 100%;
-  max-width: 690px;
+  max-width: var(--body-width);
   margin: 0px auto;
-  padding: var(--h-margin) var(--v-margin);
+  padding: var(--h-margin) 0;
 }
 
 .page {
@@ -182,11 +202,6 @@ article img {
 
 .catlist li::before { content: none; }
 
-// .catlist a {
-//   text-decoration: none;
-//   color: inherit;
-// }
-
 .catlist a:hover { color: var(--color-secondary); }
 
 .catlist .date {
@@ -198,3 +213,12 @@ article img {
 .nocss_dot { display: none; }
 
 footer .webring_link { float: right; }
+
+// Image breakpoint
+@media (max-width: 900px) {
+  article img {
+    width: calc(100% + (var(--v-margin) * 2));
+    margin-left: calc(var(--v-margin) * -1);
+    border-radius: 0;
+  }
+}
