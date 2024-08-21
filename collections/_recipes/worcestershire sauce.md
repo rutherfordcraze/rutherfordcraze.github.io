@@ -3,7 +3,7 @@ title: Worcestershire Sauce
 ---
 Authentically, Worcestershire sauce is made with fermented anchovies; this version tastes similar (I think a little better, since it’s less vinegar-forward), but it’s also vegan.
 
-This recipe makes about 1L, which will probably last you about a decade. Since it’s mostly vinegar, it should keep for about the same length of time.
+This recipe makes about a litre, which will probably last you about a decade. Since it’s mostly vinegar, it should keep for about the same length of time.
 
 ## Ingredients
 
